@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>UNEP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+    
+        <header  th:if="${session.islogged}">
+            <img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+            <div id="account" class="pull-right">
+			    <p th:text="${session.username}"> </p>
+	        	<a class="submit" th:href="@{/logOut}">Logout</a>
+			</div>
+			
+            <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+        </header>
+        
+        <header th:unless="${session.islogged}">
+        
+        	<img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+        	
+		    <div class="account" th:fragment="head">
+		        <a class="session" th:href="@{/}" >login</a>
+		    </div>
+		    
+		    <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+		</header>
+        <article id="content">
+                <form action="index" class="form" method="post">    
+                    <p>
+                        <b>Welcome to the UNEP-GEF enlighten initiative Prototype Lighting Product Registration System.</b>
+                        <br>
+                        <br>
+                        As part of the UNEP en.lighten initiative Southeast Asia and the Pacific Monitoring, Verification and Enforcement (MVE) Project, the UNEP-GEF en.lighten initiative has developed a prototype registration system to illustrate the capabilities and highlight the benefits of product registration systems. The prototype enables those who wish to implement a fully operational system to do so more quickly and easily because they have a model on which to base their system.<br><br>
+                        Policymakers may review the prototype and consider whether to use it (in whole or part) as a basis for their product registration systems. The prototype registration system is informed by global best practices and contains the essential elements of a registration system, including user input forms, data tables, and output reports. The registration system has separate login credentials for applicants, regulators and administrators to ensure smooth processing of applications.<br><br>
+                        <b>Applicant portal </b>– an applicant-supplier/manufacturer/trader must be registered in the system before their products can be sold in the market. The applicant may also track the status of their application on applicant portal. The prototype registration system provides examples of both online and offline forms.  <br>
+                        <b>Regulator portal </b>– demonstrates a platform for regulators to review and approve applications and product analysis. The regulator has the ability to approve, revoke or refuse an application. It also has advanced features such as ability to extract sales, data, testing facilities data, report generation and analysis. <br>
+                        <b>Administrator portal </b>– manages the smooth administration and functioning of all accounts. It has all the features of applicant and regulator portal and the ability to solve any issues.
+                        <br>
+                        <br>
+                        - Applicant: <span style="color:blue; margin-left:34px;"> applicant.product.registry@gmail.com </span> <br>
+                        - Regulator: <span style="color:blue; margin-left:31px;"> regulator.product.registry@gmail.com </span><br>
+                        - Administrator:     <span style="color:blue; margin-left:13px;"> admn.product.registry@gmail.com </span> <br><br>
+                        The password for all users is <b> unep1234 </b>
+                        <br>
+                    </p>
+                        <div class="control-group">
+                            <label>Email or username: <span>*</span></label>
+                            <input class="rounded" id="userId" name="userId" type="text">
+                        </div>
+                        <div class="control-group">
+                            <label>Password: <span>*</span></label>
+                            <input class="rounded" id="password" name="password" type="password">
+                        </div>
+                        <div class="control-group">
+                            <label class="checkbox">
+                                <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true"><input name="RememberMe" type="hidden" value="false">
+                                Remember me?
+                            </label>
+                        </div>
+                        <input type="submit" value="Login" class="submit">
+                        <div class="row-fluid">
+                                UNEP is working in close consultation with the Australia Government Department of Industry, Innovation and Science and with target countries in South Asia, Southeast Asia and the Pacific to identify, develop and deliver monitoring, verification and enforcement (MVE) resources to support a rapid transition to energy efficient lighting and help to secure the related energy savings and green house gas emission reductions for the region. As part of this effort, CLASP has developed, and is pilot testing, this prototype product registration system for sharing lamp performance and compliance information. To find out more about the Southeast Asia and Pacific Monitoring, Verification and Enforcement Project that funded the development of this prototype, <a href="http://www.enlighten-initiative.org/CountryActivities/SoutheastAsiaandPacificMVEProject.aspx" target="_blank">click here</a>.
+                        </div>
+                    </form>
+        </article>
+    
+        <footer>
+            <div class="row-fluid">
+                <div class="span5">
+                    <h4>A joint initiative of the Australian Government and UNEP</h4>
+                    <p>
+                        Server side compilation timer: 0.00s</p>
+                </div>
+                <div class="span7">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            Comments to: ...
+                        </div>
+                        <div class="span6">
+                            Contact number: ...
+                        </div>
+                    </div>
+                    <ul>
+                        <li>United Nations Environment Programme (UNEP)</li>
+                        <li><a href="/Home/UnderConstruction">Privacy</a></li>
+                        <li><a href="/Home/Copyright">Copyright &amp; Disclaimer </a></li>
+                        <li class="last-child"><a href="/Home/UnderConstruction">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    
+    
+    </div>
+</body>
+
+
+
+</html>

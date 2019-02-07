@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>UNEP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+    
+        <header  th:if="${session.islogged}">
+            <img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+            <div id="account" class="pull-right">
+			    <p th:text="${session.username}"> </p>
+	        	<a class="submit" th:href="@{/logOut}">Logout</a>
+			</div>
+			
+            <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+        </header>
+        
+        <header th:unless="${session.islogged}">
+        
+        	<img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+        	
+		    <div class="account" th:fragment="head">
+		        <a class="session" th:href="@{/}" >login</a>
+		    </div>
+		    
+		    <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+		</header>
+</body>
+</html>

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>UNEP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+    
+        <header  th:if="${session.islogged}">
+            <img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+            <div id="account" class="pull-right">
+			    <p th:text="${session.username}"> </p>
+	        	<a class="submit" th:href="@{/logOut}">Logout</a>
+			</div>
+			
+            <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+        </header>
+        
+        <header th:unless="${session.islogged}">
+        
+        	<img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+        	
+		    <div class="account" th:fragment="head">
+		        <a class="session" th:href="@{/}" >login</a>
+		    </div>
+		    
+		    <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+		</header>
+        <article id="content">
+                <form th:action="@{/administrative_details}" th:object="${administrative_details}" enctype="multipart/form-data" method="post">    
+                    <h2>Administrative Details</h2>
+                    <p>Note: To move from one field to the next you can use the “Tab” button</p>
+                    <input data-val="true" data-val-number="The field AdminId must be a number." data-val-required="The AdminId field is required." id="AdminId" name="AdminId" type="hidden" value="253">    
+                    <h4 class="title">Regulatory Details</h4>
+                    <section>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Country where the application is lodged:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline">Brunei</span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Form No.</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline">TCVN  8525:2010 V1.0</span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Type of Product:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline">Distribution transformers</span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Sub Category:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Record ID:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline">000253</span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Product Registration Number:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Record Status:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline">Draft</span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Registration Approval Date:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Registration Expiry date:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Registration Suspension Date:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Registration Superceded Date:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Registration Revocation Date:</label>
+                            </div>
+                            <div class="span8">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span4 text-right">
+                                <label for="" class="help-inline">Approval officer:</label>
+                            </div>
+                            <div class="span8">
+                
+                
+                            </div>
+                        </div>
+                    </section>
+                    <h4 class="title">General Details</h4>
+                    <section class="general-details">
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label for="">How is this product to be supplied into Brunei?:<span>*</span></label>
+                                <select class="rounded span9" id="IsImport" name="IsImport" onchange="RegistrationAdministrativeDetails.ValidIsImport();"><option value="1">It is manufactured in this country by our organisation</option>
+                                    <option value="2">It is manufactured outside this country in our organisation and imported here</option>
+                                    <option value="3">It is manufactured outside this country by another organisation and imported by us</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            Note: Recording of importation data would only be included for those jurisdictions that wished to record details of each and every importation shipment, otherwise these 3 fields would be removed.
+                        </div>
+                        <div class="row-fluid" id="divImport" style="display: none;">
+                            <div class="control-group">
+                                <div class="span4">
+                                    <label for="">Lot no.</label>
+                                    <input class="span9 rounded" id="ImportLotText" name="ImportLotText" readonly="true" type="text" value="">
+                                </div>
+                                <div class="span4">
+                                    <label for="">Date of import <span class="message-error" id="spanLabelImportDateText"></span></label>
+                                    <input class="span6 date-picker hasDatepicker" id="ImportDateText" name="ImportDateText" placeholder="____/__/__" type="text" value="">				
+                                    <i class="icon-calendar fa fa-calendar"></i>
+                                    <br>
+                                    <span class="field-validation-valid" data-valmsg-for="ImportDateText" data-valmsg-replace="true"></span>
+                                    </div>
+                                <div class="span4">
+                                    <label for="">Number of units<span class="message-error" id="spanLabelImportNum"></span></label>
+                                    <input class="rounded" data-val="False" data-val-number="The field Number of units must be a number." id="ImportNum" name="ImportNum" onchange="RegistrationAdministrativeDetails.ChangeValueImportLot('Error: This is required input, please complete this field');" type="text" value="">
+                                    <br>
+                                    <span id="spanImportNum" class="message-error"></span>
+                                    <span class="field-validation-valid" data-valmsg-for="ImportNum" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label for="">Country of product manufacture?:<span>*</span></label>
+                                <select class="span5 rounded" id="Country" name="Country"><option value="AFG">Afghanistan</option>
+                                    <option value="ALB">Albania</option>
+                                    <option value="ALG">Algeria</option>
+                                    <option value="ASA">American Samoa*</option>
+                                    <option value="AND">Andorra</option>
+                                    <option value="ANG">Angola</option>
+                                    <option value="ANT">Antigua and Barbuda</option>
+                                    <option value="ARG">Argentina</option>
+                                    <option value="ARM">Armenia</option>
+                                    <option value="ARU">Aruba*</option>
+                                    <option value="AUS">Australia</option>
+                                    <option value="ANZ">Australasia</option>
+                                    <option value="AUT">Austria</option>
+                                    <option value="AZE">Azerbaijan</option>
+                                    <option value="BAH">The Bahamas</option>
+                                    <option value="BRN">Bahrain</option>
+                                    <option value="BAN">Bangladesh</option>
+                                    <option value="BAR">Barbados</option>
+                                    <option value="BLR">Belarus</option>
+                                    <option value="BEL">Belgium</option>
+                                    <option value="BIZ">Belize</option>
+                                    <option value="BER">Bermuda*</option>
+                                    <option value="BEN">Benin</option>
+                                    <option value="BHU">Bhutan</option>
+                                    <option value="BOL">Bolivia</option>
+                                    <option value="BIH">Bosnia and Herzegovina</option>
+                                    <option value="BOT">Botswana</option>
+                                    <option value="BRA">Brazil</option>
+                                    <option value="IVB">British Virgin Islands*</option>
+                                    <option selected="selected" value="BRU">Brunei</option>
+                                    <option value="BUL">Bulgaria</option>
+                                    <option value="BUR">Burkina Faso</option>
+                                    <option value="BDI">Burundi</option>
+                                    <option value="CAM">Cambodia</option>
+                                    <option value="CMR">Cameroon</option>
+                                    <option value="CAN">Canada</option>
+                                    <option value="CPV">Cape Verde</option>
+                                    <option value="CAY">Cayman Islands*</option>
+                                    <option value="CAF">Central African Republic</option>
+                                    <option value="CHA">Chad</option>
+                                    <option value="CHI">Chile</option>
+                                    <option value="CHN">China</option>
+                                    <option value="COL">Colombia</option>
+                                    <option value="COM">Comoros</option>
+                                    <option value="CGO">Congo, Republic of the</option>
+                                    <option value="COD">Congo, Democratic</option>
+                                    <option value="COK">Republic of the Cook Islands*</option>
+                                    <option value="CRC">Costa Rica</option>
+                                    <option value="CIV">Cote d''Ivoire</option>
+                                    <option value="CRO">Croatia</option>
+                                    <option value="CUB">Cuba</option>
+                                    <option value="CYP">Cyprus</option>
+                                    <option value="CZE">Czech Republic</option>
+                                    <option value="DEN">Denmark</option>
+                                    <option value="DJI">Djibouti</option>
+                                    <option value="DMA">Dominica</option>
+                                    <option value="DOM">Dominican Republic</option>
+                                    <option value="TLS">East Timor (Timor-Leste)</option>
+                                    <option value="ECU">Ecuador</option>
+                                    <option value="EGY">Egypt</option>
+                                    <option value="ESA">El Salvador</option>
+                                    <option value="GEQ">Equatorial Guinea</option>
+                                    <option value="ERI">Eritrea</option>
+                                    <option value="EST">Estonia</option>
+                                    <option value="ETH">Ethiopia</option>
+                                    <option value="FIJ">Fiji</option>
+                                    <option value="FIN">Finland</option>
+                                    <option value="FRA">France</option>
+                                    <option value="GAB">Gabon</option>
+                                    <option value="GAM">The Gambia</option>
+                                    <option value="GEO">Georgia</option>
+                                    <option value="GER">Germany</option>
+                                    <option value="GHA">Ghana</option>
+                                    <option value="GRE">Greece</option>
+                                    <option value="GRN">Grenada</option>
+                                    <option value="GUM">Guam*</option>
+                                    <option value="GUA">Guatemala</option>
+                                    <option value="GUI">Guinea</option>
+                                    <option value="GBS">Guinea-Bissau</option>
+                                    <option value="GUY">Guyana</option>
+                                    <option value="HAI">Haiti</option>
+                                    <option value="HON">Honduras</option>
+                                    <option value="HKG">Hong Kong*</option>
+                                    <option value="HUN">Hungary</option>
+                                    <option value="ISL">Iceland</option>
+                                    <option value="IND">India</option>
+                                    <option value="IOA">Individual Olympic athletes</option>
+                                    <option value="INA">Indonesia</option>
+                                    <option value="IRI">Iran</option>
+                                    <option value="IRQ">Iraq</option>
+                                    <option value="IRL">Ireland</option>
+                                    <option value="ISR">Israel</option>
+                                    <option value="ITA">Italy</option>
+                                    <option value="JAM">Jamaica</option>
+                                    <option value="JPN">Japan</option>
+                                    <option value="JOR">Jordan</option>
+                                    <option value="KAZ">Kazakhstan</option>
+                                    <option value="KEN">Kenya</option>
+                                    <option value="PRK">Korea, North&nbsp;(PDR of Korea)</option>
+                                    <option value="KOR">Korea, South</option>
+                                    <option value="KUW">Kuwait</option>
+                                    <option value="KGZ">Kyrgyzstan</option>
+                                    <option value="LAO">Laos</option>
+                                    <option value="LAT">Latvia</option>
+                                    <option value="LIB">Lebanon</option>
+                                    <option value="LES">Lesotho</option>
+                                    <option value="LBR">Liberia</option>
+                                    <option value="LBA">Libya</option>
+                                    <option value="LIE">Liechtenstein</option>
+                                    <option value="LTU">Lithuania</option>
+                                    <option value="LUX">Luxembourg</option>
+                                    <option value="MKD">Macedonia</option>
+                                    <option value="MAD">Madagascar</option>
+                                    <option value="MAW">Malawi</option>
+                                    <option value="MAL">Malaya</option>
+                                    <option value="MAS">Malaysia</option>
+                                    <option value="MDV">Maldives</option>
+                                    <option value="MLI">Mali</option>
+                                    <option value="MLT">Malta</option>
+                                    <option value="MTN">Mauritania</option>
+                                    <option value="MRI">Mauritius</option>
+                                    <option value="MEX">Mexico</option>
+                                    <option value="FSM">Micronesia (Federated States of)</option>
+                                    <option value="ZZX">Mixed Team&nbsp;(1896 to 1904)</option>
+                                    <option value="MDA">Moldova</option>
+                                    <option value="MON">Monaco</option>
+                                    <option value="MGL">Mongolia</option>
+                                    <option value="MAR">Morocco</option>
+                                    <option value="MOZ">Mozambique</option>
+                                    <option value="MYA">Myanmar (Burma)</option>
+                                    <option value="NAM">Namibia</option>
+                                    <option value="NRU">Nauru</option>
+                                    <option value="NEP">Nepal</option>
+                                    <option value="NED">Netherlands</option>
+                                    <option value="AHO">Netherlands Antilles*</option>
+                                    <option value="NZL">New Zealand</option>
+                                    <option value="NCA">Nicaragua</option>
+                                    <option value="NIG">Niger</option>
+                                    <option value="NGR">Nigeria</option>
+                                    <option value="NOR">Norway</option>
+                                    <option value="OMA">Oman</option>
+                                    <option value="PAK">Pakistan</option>
+                                    <option value="PLW">Palau</option>
+                                    <option value="PLE">Palestine*</option>
+                                    <option value="PAN">Panama</option>
+                                    <option value="PNG">Papua New Guinea</option>
+                                    <option value="PAR">Paraguay</option>
+                                    <option value="PER">Peru</option>
+                                    <option value="PHI">Philippines</option>
+                                    <option value="POL">Poland</option>
+                                    <option value="POR">Portugal</option>
+                                    <option value="PUR">Puerto Rico*</option>
+                                    <option value="QAT">Qatar</option>
+                                    <option value="ROU">Romania</option>
+                                    <option value="RUS">Russian Federation</option>
+                                    <option value="RWA">Rwanda</option>
+                                    <option value="SKN">Saint Kitts and Nevis</option>
+                                    <option value="LCA">Saint Lucia</option>
+                                    <option value="VIN">Saint Vincent and the Grenadines</option>
+                                    <option value="SAM">Samoa</option>
+                                    <option value="SMR">San Marino</option>
+                                    <option value="STP">Sao Tome and Principe</option>
+                                    <option value="KSA">Saudi Arabia</option>
+                                    <option value="SEN">Senegal</option>
+                                    <option value="SCG">Serbia and Montenegro</option>
+                                    <option value="SEY">Seychelles</option>
+                                    <option value="SLE">Sierra Leone</option>
+                                    <option value="SIN">Singapore</option>
+                                    <option value="SVK">Slovakia</option>
+                                    <option value="SLO">Slovenia</option>
+                                    <option value="SOL">Solomon Islands</option>
+                                    <option value="SOM">Somalia</option>
+                                    <option value="RSA">South Africa</option>
+                                    <option value="ESP">Spain</option>
+                                    <option value="SRI">Sri Lanka</option>
+                                    <option value="SUD">Sudan</option>
+                                    <option value="SUR">Suriname</option>
+                                    <option value="SWZ">Swaziland</option>
+                                    <option value="SWE">Sweden</option>
+                                    <option value="SUI">Switzerland</option>
+                                    <option value="SYR">Syria</option>
+                                    <option value="TPE">Taiwan&nbsp;(Chinese Taipei)</option>
+                                    <option value="TJK">Tajikistan</option>
+                                    <option value="TAN">Tanzania</option>
+                                    <option value="THA">Thailand</option>
+                                    <option value="TOG">Togo</option>
+                                    <option value="TGA">Tonga</option>
+                                    <option value="TRI">Trinidad and Tobago</option>
+                                    <option value="TUN">Tunisia</option>
+                                    <option value="TUR">Turkey</option>
+                                    <option value="TKM">Turkmenistan</option>
+                                    <option value="UGA">Uganda</option>
+                                    <option value="UKR">Ukraine</option>
+                                    <option value="EUN">Unified Team</option>
+                                    <option value="EUA">Unified Team of Germany</option>
+                                    <option value="UAE">United Arab Emirates</option>
+                                    <option value="RAU">United Arab Republic</option>
+                                    <option value="GBR">United Kingdom (Great Britain)</option>
+                                    <option value="USA">United States</option>
+                                    <option value="URU">Uruguay</option>
+                                    <option value="UZB">Uzbekistan</option>
+                                    <option value="VAN">Vanuatu</option>
+                                    <option value="VEN">Venezuela</option>
+                                    <option value="VIE">Vietnam</option>
+                                    <option value="ISV">Virgin Islands*</option>
+                                    <option value="WIF">West Indies Federation&nbsp;(Antilles)</option>
+                                    <option value="YEM">Yemen</option>
+                                    <option value="ZAM">Zambia</option>
+                                    <option value="ZIM">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
+                
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label for="">When will this product be made available in the region<span>*</span></label>
+                                <input class="date-picker span3 rounded hasDatepicker" id="AvailableDateRegionText" name="AvailableDateRegionText" placeholder="____/__/__" type="text" value="">
+                                <i class="icon-calendar fa fa-calendar"></i>
+                                <span class="field-validation-valid" data-valmsg-for="AvailableDateRegionText" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label for="">When will this product be available in Brunei?<span>*</span></label>
+                                <input class="date-picker span3 rounded hasDatepicker" id="AvailableDateText" name="AvailableDateText" placeholder="____/__/__" type="text" value="">
+                                <i class="icon-calendar fa fa-calendar"></i>
+                                <span class="field-validation-valid" data-valmsg-for="AvailableDateText" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label for="">How can the date of manufacture be determined from markings on the product?:<span>*</span></label>
+                                <select class="span5 rounded" id="DateSelection" name="DateSelection" onchange="RegistrationAdministrativeDetails.ValidDateSelection();"><option value="1">From a date permanently marked on the product</option>
+                <option value="2">From a date permanently marked on the product in encrypted format</option>
+                <option value="3">No date of manufacturer is marked in any format</option>
+                </select>
+                            </div>
+                             
+                        </div>
+                        <div id="divDateExample">
+                            <div class="row-fluid">
+                                <div class="control-group">
+                                    <label for="">Provide an example of the date format:<span class="message-error" id="spanDateExample">*</span></label> 
+                                    <textarea class="span8 rounded" cols="20" id="DateExample" maxlength="100" name="DateExample" onchange="RegistrationAdministrativeDetails.OnchangeDateExample();" rows="4"></textarea>
+                                    <i class="icon-question-black" onclick="ApplicationRegistration.ShowHelpDateExample('For this field you need to indicate the format of the date of manufacturer as printed on your product. This may simply be month/year or week/year printed on the nameplate. Alternatively the date may be encoded in something like the serial number eg. The date is coded within the serial number SN101455552 where the first 2 digits after the letters SN = the week and the second 2 digits indicate the year (ie 10th week in 2014). Please use any other format also, if aforesaid is not relevant.');"></i>
+                                    <br>
+                                    <span id="spanDateExampleText" class="message-error"></span>
+                                    <span class="field-validation-valid" data-valmsg-for="DateExample" data-valmsg-replace="true"></span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label for="">Energy Performance Standard:</label>
+                                <input class="span5 rounded" id="Reg_Std" name="Reg_Std" readonly="true" type="text" value="TCVN  8525:2010 Edition 1">
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label for="">Test Standard:</label>
+                                <select class="span5 rounded" id="TestStd" name="TestStd"><option value="010">TCVN 6306-1 Edition 1</option>
+                </select>
+                            </div>
+                        </div>
+                    </section>
+                    <h4 class="title">
+                        Applicant Details</h4>
+                    <section>
+                        <div id="divApplicantDetail"><div class="row-fluid">
+                        <div class="span12">
+                        <label class="help-inline">
+                            Applicant ID:
+                        </label>
+                        <span>53</span></div>
+                        </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Name of Company or Enterprise:
+                        </label>
+                        <span>Gosei Vietnam</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Street address:
+                        </label>
+                        <span>Hoang Quoc Viet</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Town or City:
+                        </label>
+                        <span>Hanoi</span></div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            State or Province:
+                        </label>
+                        <span>Hanoi</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Country:</label>
+                        <span>Vietnam</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Postal Code (if applicable):</label>
+                        <span></span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Postal address:</label>
+                        <span>Hoang Quoc Vietnam</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Town or City:
+                        </label>
+                        <span>Hanoi</span></div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            State or Province:
+                        </label>
+                        <span>Hanoi District</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Country:</label>
+                        <span>Vietnam</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Postal Code (if applicable):</label>
+                        <span>10000</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Name of parent company or managerial agency:
+                        </label>
+                        <span></span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Name of responsible officer (first name):
+                        </label>
+                        <span>Pham</span></div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            Name of responsible officer (last name):
+                        </label>
+                        <span>Duy Tung</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Responsible officers job title:</label>
+                        <span>CEO</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Phone:
+                        </label>
+                        <span>+22 2 22233333</span></div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            Fax:
+                        </label>
+                        <span>+12 3 11111111</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Email address:
+                        </label>
+                        <span>phamduytung@gmail.com</span></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Data input by::
+                        </label>
+                            <span>Pham Duy Tung</span>
+                </div>
+                </div>
+                </div>		
+                    </section>
+                    <h4 class="title">
+                        Manufacturer Details</h4>
+                    <section>
+                        <div class="row-fluid">
+                            <div class="control-group text-right">
+                                    <a onclick="RegistrationAdministrativeDetails.PopupMenufacturer('53');" href="javascript:void(-1)" class="btn">Edit/Add details of Manufacturer</a>
+                                    <a onclick="RegistrationAdministrativeDetails.DeleteMenufacturer();" href="javascript:void(-1)" class="btn">Delete Manufacturer</a>
+                                    <a href="javascript:void(-1)" class="btn" onclick="RegistrationAdministrativeDetails.ReloadCombobox('53');">Update details</a>
+                            </div>
+                            Note: To add a second or subsequent manufacturer to your list, set the drop down list to "select" then left mouse click on the "Edit/Add details of manufacturer" button.
+                        </div>
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label>Select the applicable Manufacturer <span>*</span></label>
+                                <select class="span4" id="ManuId" name="ManuId" onchange="RegistrationAdministrativeDetails.LoadManufacturerDetails();"><option selected="selected" value="0">Select</option>
+                <option value="4">Động cơ Thống Nhất</option>
+                <option value="5">Manufacturer 2</option>
+                <option value="6">adsfadfa</option>
+                </select>
+                                <span class="field-validation-valid" data-valmsg-for="ManuId" data-valmsg-replace="true"></span>
+                                <span id="spanManuId" class="message-error"></span>
+                            </div>
+                        </div>
+                        <hr style="margin-top:0px;">
+                        <div id="divManufacturerDetails"><div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Manufacture ID:
+                        </label>
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Name of manufacturer:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Phone:</label>
+                        <span></span>
+                    </div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            Fax:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Email address:</label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Street address:</label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Town or city:
+                        </label>
+                        <span></span>
+                    </div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            State or pronvice:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Country:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Postal Code (if applicable):
+                        </label>
+                        <span></span>
+                    </div>
+                </div></div>		
+                    </section>
+                    <h4 class="title">
+                        Testing Organisation</h4>
+                    <section>
+                        <div class="control-group text-right">
+                                <a onclick="RegistrationAdministrativeDetails.PopupTestOrganisation('01');" href="javascript:void(-1)" class="btn">Edit/Add details of Test Org</a>
+                                <a onclick="RegistrationAdministrativeDetails.DeleteTestOrg();" href="javascript:void(-1)" class="btn">Delete Test Org</a>
+                                <a href="javascript:void(-1)" class="btn" onclick="RegistrationAdministrativeDetails.ReloadComboboxTestOrganisation('01');">Update details</a>
+                        </div>
+                
+                        <div class="row-fluid">
+                            <label>Select the applicable Testing Organisation<span>*</span></label>
+                            <select class="span4" id="LabId" name="LabId" onchange="RegistrationAdministrativeDetails.LoadTestOrganisationDetails();"><option selected="selected" value="0">Select</option>
+                <option value="9">Gosei VN</option>
+                <option value="11"> BHTecht</option>
+                <option value="12">XYZ</option>
+                <option value="16">Tung3</option>
+                <option value="20">Gosei 11</option>
+                <option value="22">testing seychelles org</option>
+                <option value="24">dfbvsdfvbs</option>
+                </select>
+                            <span class="field-validation-valid" data-valmsg-for="LabId" data-valmsg-replace="true"></span>
+                            <span id="spanLabId" class="message-error"></span>
+                        </div>
+                        <div style="padding:5px;">
+                            If your testing organisation does not appear in the drop-down list above please contact the regulator using the contact details at the bottom of this screen
+                        </div>
+                        <hr style="margin-top:0px;">
+                        <div id="divTestOrganisationDetails"><div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Testing Organisation ID:
+                        </label>
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Name of Testing Organisation:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Phone:</label>
+                        <span></span>
+                    </div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            Fax:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Email address:</label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Street address:</label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label class="help-inline">
+                            Town or City:
+                        </label>
+                        <span></span>
+                    </div>
+                    <div class="span6">
+                        <label class="help-inline">
+                            State or Province:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Country:
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="help-inline">
+                            Postal Code (if applicable):
+                        </label>
+                        <span></span>
+                    </div>
+                </div>
+                </div>
+                    </section>
+                    <h4 class="title">
+                        Remarks</h4>
+                    <section>
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <textarea class="span12 rounded" cols="20" id="Remark" maxlength="2000" name="Remark" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="control-group">
+                        <input type="submit" name="saveAndContinue" class="submit" value="Save &amp; continue >>">
+                    </div>
+                </form>
+        </article>
+
+        <footer>
+            <div class="row-fluid">
+                <div class="span5">
+                    <h4>A joint initiative of the Australian Government and UNEP</h4>
+                    <p>
+                        Server side compilation timer: 0.00s</p>
+                </div>
+                <div class="span7">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            Comments to: ...
+                        </div>
+                        <div class="span6">
+                            Contact number: ...
+                        </div>
+                    </div>
+                    <ul>
+                        <li>United Nations Environment Programme (UNEP)</li>
+                        <li><a href="/Home/UnderConstruction">Privacy</a></li>
+                        <li><a href="/Home/Copyright">Copyright &amp; Disclaimer </a></li>
+                        <li class="last-child"><a href="/Home/UnderConstruction">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>UNEP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+    
+        <header  th:if="${session.islogged}">
+            <img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+            <div id="account" class="pull-right">
+			    <p th:text="${session.username}"> </p>
+	        	<a class="submit" th:href="@{/logOut}">Logout</a>
+			</div>
+			
+            <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+        </header>
+        
+        <header th:unless="${session.islogged}">
+        
+        	<img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+        	
+		    <div class="account" th:fragment="head">
+		        <a class="session" th:href="@{/}" >login</a>
+		    </div>
+		    
+		    <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+		</header>
+        <article id="content">
+            <div class="new_product">
+                <a th:href="@{/newProduct}"> create a new product registration application</a>
+            </div>
+        </article>
+
+        <footer>
+            <div class="row-fluid">
+                <div class="span5">
+                    <h4>A joint initiative of the Australian Government and UNEP</h4>
+                    <p>
+                        Server side compilation timer: 0.00s</p>
+                </div>
+                <div class="span7">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            Comments to: ...
+                        </div>
+                        <div class="span6">
+                            Contact number: ...
+                        </div>
+                    </div>
+                    <ul>
+                        <li>United Nations Environment Programme (UNEP)</li>
+                        <li><a href="/Home/UnderConstruction">Privacy</a></li>
+                        <li><a href="/Home/Copyright">Copyright &amp; Disclaimer </a></li>
+                        <li class="last-child"><a href="/Home/UnderConstruction">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

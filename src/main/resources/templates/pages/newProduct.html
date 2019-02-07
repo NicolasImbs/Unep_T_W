@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>UNEP</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+    
+        <header  th:if="${session.islogged}">
+            <img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+            <div id="account" class="pull-right">
+			    <p th:text="${session.username}"> </p>
+			    <a href="/Account/LogOff" class="submit">Log out</a>
+			</div>
+			
+            <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+        </header>
+        
+        <header th:unless="${session.islogged}">
+        
+        	<img src="http://i.imgur.com/CZaUWGa.png" width="852" height="120" id="logo" usemap="#logoMap">
+        	
+		    <div class="account" th:fragment="head">
+		        <a class="session" th:href="@{/}" >login</a>
+		    </div>
+		    
+		    <div id="menu">
+                <a href="index.html" class="home">
+                    home
+                </a>
+                <ul class="menu_list">
+                    <li>login</li>
+                    <li>Register</li>
+                    <li>Reset Password</li>
+                    <li>News</li>
+                    <li>Policies</li>
+                    <li>Tips to save energy</li>
+                    <li>help</li>
+                </ul>
+            </div>
+		</header>
+		
+		<article id="content">
+            <form th:action="@{/newProduct}" th:object="${newProduct}" class="form" method="post">    
+                <p>To initiate a product registration application select the required product type then left mouse click on the “Save and Continue” button</p>
+                <div class="control-group">
+<!--                     <label>Country where applicant is applying for registration: <span>*</span></label> -->
+<!--                     
+                    	<input th:field="*{country}" type="text" /> 
+                    	
+                    	<p> Countries : </br>
+                    		Brunei </br>
+                    		Combodia </br>
+                    		Indonesia </br>
+                    		Laos </br>
+                    		Malaysia </br>
+                    		Mynmar (Burma)</br>
+                    		Philipines</br>
+                    		Singapore</br>
+                    		Thailand</br>
+                    		Vietnam
+                    	</p>     
+                </div>
+                <div class="control-group">
+                    <label>Select the type of product you wish to register: <span>*</span></label>
+                    	<input type="text" th:field ="*{productType}" />
+                    	<p>
+                    	Product Type: </br>
+                    	Distribution transformers</br>
+                    	Compact Fluorescent Lamps</br>
+                    	Tubular fluorescent lamps</br>
+                    	Ballasts</br>
+                    	Electric fans</br>
+                    	Refrigerator/Freezers</br>
+                    	Air-conditioners</br>
+                    	Washing machines</br>
+                    	ice Cooker</br>
+                    	Electric motors</br>
+                    	Television</br>
+                    	
+                    	</p>
+                </div>
+                <div class="control-group">
+                    <label>Energy Performance Standard: <span>*</span></label>
+                        <input th:field="*{standardEnergy}" type="text" />
+                        <p> Standard Energy Types:</br>
+                        	TCVN  8525:2010 Edition 1
+						</p> -->
+                    
+                </div>
+                <div class="control-group">
+                    <div class="span12">Note: At this stage only the Vietnamese standard requirements have been built into this demonstration model – future versions will include options for other countries</div>
+                </div>
+
+                <input type="submit" class="submit" value="Submit">
+            </form>
+
+        </article>
+        
+
+        <footer>
+            <div class="row-fluid">
+                <div class="span5">
+                    <h4>A joint initiative of the Australian Government and UNEP</h4>
+                    <p>
+                        Server side compilation timer: 0.00s</p>
+                </div>
+                <div class="span7">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            Comments to: ...
+                        </div>
+                        <div class="span6">
+                            Contact number: ...
+                        </div>
+                    </div>
+                    <ul>
+                        <li>United Nations Environment Programme (UNEP)</li>
+                        <li><a href="/Home/UnderConstruction">Privacy</a></li>
+                        <li><a href="/Home/Copyright">Copyright &amp; Disclaimer </a></li>
+                        <li class="last-child"><a href="/Home/UnderConstruction">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
